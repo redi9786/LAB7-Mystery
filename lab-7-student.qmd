@@ -126,10 +126,32 @@ SUSPECT1_INTERVIEW$transcript
 
 SQL_GYM_CHECKIN <- get_fit_now_check_in |>
   filter(check_in_date == "20180109")
-view(SQL_GYM_CHECKIN)
+head(SQL_GYM_CHECKIN)
+```
+# I guess I will now filter the gym member ship with the member ship ids here to see the names
+
+```{r}
+SUSPECT_GYM_IDS <- get_fit_now_member |>
+  filter(id %in% c("7MWHJ","6LSTG","1AE2H","XTE42","UK1F2","X0643"))
+head(SUSPECT_GYM_IDS)
 ```
 
+```{r}
+SUSPECTS_interview <- interview |>
+  filter(person_id %in% c(15247, 28073, 55662, 10815, 83186, 31523))
 
+head(SUSPECTS_inteview)
+```
+```{r}
+SUSPECTS_interview$transcript
+```
+
+```{r}
+NEXT_SUSPECT <- person |>
+  filter(name == "Zackary Cabotage")
+head(NEXT_SUSPECT)
+```
+ #I think Its Zackary. Thats all I got.
 
 **Next Steps: Follow the evidence to the person responsible for the murder, building a report as you go.**
 There are accomplices, some knowingly and some unknowingly, but there is only one mastermind.
